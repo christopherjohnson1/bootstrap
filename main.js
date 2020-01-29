@@ -146,12 +146,11 @@ const chooseGender = (e) => {
 }
 
 
-const chooseRubber = (e) => {
-    const buttonId = e.target.id;
+const chooseRubber = () => {
     const selectedDucks = [];
     for(let i = 0; i < ducks.length; i++) {
      
-        if(ducks[i].isRubber === buttonId){
+        if(ducks[i].isRubber){
         selectedDucks.push(ducks[i]);
     }}
     duckPrinter(selectedDucks);
