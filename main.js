@@ -122,9 +122,54 @@ const duckPrinter = (quacks) => {
     printToDom('ducks', domString);
 }
 
+const chooseColor = (e) => {
+    const buttonId = e.target.id;
+    const selectedDucks = [];
+    for(let i = 0; i < ducks.length; i++) {
+     
+        if(ducks[i].color === buttonId){
+        selectedDucks.push(ducks[i]);
+    }}
+    duckPrinter(selectedDucks);
+}
+
+
+const chooseGender = (e) => {
+    const buttonId = e.target.id;
+    const selectedDucks = [];
+    for(let i = 0; i < ducks.length; i++) {
+     
+        if(ducks[i].gender === buttonId){
+        selectedDucks.push(ducks[i]);
+    }}
+    duckPrinter(selectedDucks);
+}
+
+
+const chooseRubber = (e) => {
+    const buttonId = e.target.id;
+    const selectedDucks = [];
+    for(let i = 0; i < ducks.length; i++) {
+     
+        if(ducks[i].isRubber === buttonId){
+        selectedDucks.push(ducks[i]);
+    }}
+    duckPrinter(selectedDucks);
+}
+
+const events = () => {
+    document.getElementById('blue').addEventListener('click', chooseColor);
+    document.getElementById('pink').addEventListener('click', chooseColor);
+    document.getElementById('brown').addEventListener('click', chooseColor);
+    document.getElementById('female').addEventListener('click', chooseGender);
+    document.getElementById('male').addEventListener('click', chooseGender);
+    document.getElementById('rubber').addEventListener('click', chooseRubber);
+};
+
 // builds page always do init function to tidy code
 const init = () => {
     duckPrinter(ducks);
-}
+    events();
+};
 // make sure to call the init function after defining it
 init(); 
